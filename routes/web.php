@@ -25,6 +25,10 @@ Route::get('/addProduct', function () {
     return view('addProduct');
 });
 
+Route::post('/addCategory/store',[App\Http\Controllers\CategoryController::class,'add'])->name('addCategory');
+
+Route::post('/addProduct/store',[App\Http\Controllers\ProductController::class,'add'])->name('addProduct');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
