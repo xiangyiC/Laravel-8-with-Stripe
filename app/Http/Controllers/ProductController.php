@@ -16,11 +16,11 @@ class ProductController extends Controller
         $imageName=$image->getClientOriginalName();
         
         $addProduct=Product::create([
-            'name'=>$r->productName,
+            'name'=>$r->productName, //name must same with database
             'description'=>$r->productDescription,//field name
             'quantity'=>$r->productQuantity,
             'price'=>$r->productPrice,
-            'category'=>$r->CategoryID,
+            'CategoryID'=>$r->CategoryID,
             'image'=>$imageName,
         ]);
         Return view('addProduct');
