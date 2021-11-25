@@ -29,7 +29,10 @@ Route::post('/addCategory/store',[App\Http\Controllers\CategoryController::class
 
 Route::post('/addProduct/store',[App\Http\Controllers\ProductController::class,'add'])->name('addProduct');
 
-Route::get('/showCategory/store',[App\Http\Controllers\CategoryController::class,'view'])->name('showCategory');
+Route::get('/showCategory',[App\Http\Controllers\CategoryController::class,'view'])->name('showCategory');
+
+Route::get('/showProduct',[App\Http\Controllers\ProductController::class,'view'])->name('showProduct');
+
 
 Auth::routes();
 

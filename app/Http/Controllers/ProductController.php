@@ -23,6 +23,12 @@ class ProductController extends Controller
             'CategoryID'=>$r->CategoryID,
             'image'=>$imageName,
         ]);
-        Return view('addProduct');
+        //Return view('addProduct');
+        Return redirect()->route('showProduct');
+    }
+
+    public function view(){
+        $viewProduct=Product::all();
+        Return view('showProduct')->with('products',$viewProduct); 
     }
 }
