@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Product;
-
+use Session;
 
 class ProductController extends Controller
 {
@@ -23,6 +23,8 @@ class ProductController extends Controller
             'CategoryID'=>$r->CategoryID,
             'image'=>$imageName,
         ]);
+        Session::flash('success',"Product created sucessfully!");
+        
         //Return view('addProduct');
         Return redirect()->route('showProduct');
     }
