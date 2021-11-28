@@ -30,7 +30,13 @@ class ProductController extends Controller
     }
 
     public function view(){
-        $viewProduct=Product::all();
+        //$viewProduct=Product::all();
+        $viewProduct=DB::table('products') //select everything from table
+        ->leftjoin('categories','categories.id','=','products.CategoryID')
+        ->select('products.*','categories.name as categoryName')
+        ->get();
+
         Return view('showProduct')->with('products',$viewProduct); 
+        
     }
 }
