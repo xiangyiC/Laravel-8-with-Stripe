@@ -33,6 +33,18 @@ Route::get('/showCategory',[App\Http\Controllers\CategoryController::class,'view
 
 Route::get('/showProduct',[App\Http\Controllers\ProductController::class,'view'])->name('showProduct');
 
+Route::get('/deleteProduct/{id}',[App\Http\Controllers\ProductController::class,'delete'])->name('deleteProduct');
+
+Route::get('editProduct/{id}',[App\Http\Controllers\ProductController::class,'edit'])->name('editProduct');
+// http://localhost/editProduct.php?id=22 localhost/editProduct/22
+
+Route::post('/updateProduct',[App\Http\Controllers\ProductController::class,'update'])->name('updateProduct');
+
+Route::get('/productDetail/{id}', [App\Http\Controllers\ProductController::class,'productdetail'])->name('product.detail');
+
+Route::get('/products',[App\Http\Controllers\ProductController::class,'viewProduct'])->name('products');
+
+Route::post('/addCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart');
 
 Auth::routes();
 
